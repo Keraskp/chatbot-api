@@ -11,19 +11,19 @@ class Chatbox {
     }
 
     display() {
-        const { openButton, chatBox, sendButton } = this.args
+        const { openButton, chatBox, sendButton } = this.args;
         openButton.addEventListener('click', () => this.toggleState(chatBox))
         sendButton.addEventListener('click', () => this.onSendButton(chatBox))
         const node = chatBox.querySelector('input');
         node.addEventListener("keyup", ({ key }) => {
-            if (key == "Enter") {
+            if (key === "Enter") {
                 this.onSendButton(chatBox)
             }
         })
     }
 
     toggleState(chatbox) {
-        this.state = !this.state
+        this.state = !this.state;
         if (this.state) {
             chatbox.classList.add('chatbox--active')
         } else {
@@ -34,7 +34,7 @@ class Chatbox {
     onSendButton(chatbox) {
         var textField = chatbox.querySelector('input');
         let text1 = textField.value
-        if (text1 == "") {
+        if (text1 === "") {
             return;
         }
         let msg1 = { name: "User", message: text1 }
@@ -65,8 +65,8 @@ class Chatbox {
 
     updateChatText(chatbox) {
         var html = '';
-        this.messages.slice().reverse.forEach(function (item,) {
-            if (item.name == "Sam") {
+        this.messages.slice().reverse().forEach(function(item,) {
+            if (item.name === "Sam") {
                 html += '<div class="messages__item messages__item--visitor">' + item.message + '</div>'
             }
             else {
